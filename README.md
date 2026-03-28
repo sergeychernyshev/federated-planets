@@ -4,13 +4,13 @@ Federated Planets is a decentralized space exploration game where every planet i
 
 In this universe, your domain name is your destiny.
 
-- **Deterministic Coordinates:** A planet's location in the 1,000 x 1,000 parsec grid is deterministically calculated by hashing its domain name. This ensures that every URL has a fixed, unique position in space.
+- **Deterministic Coordinates:** A planet's location in the 1,000 x 1,000 sparsec grid is deterministically calculated by hashing its domain name. This ensures that every URL has a fixed, unique position in space.
 - **Sovereign Hosting:** Each planet is a standalone website hosted by its owner. You control your planet's appearance, atmosphere, and culture.
 - **The Warp Ring:** Every planet features a "Warp Ring" (a modern evolution of the classic _web ring_). This area lists neighboring planets and automatically generates a localized star map.
 
 ## Calculating Planet Coordinates
 
-To ensure every planet has a unique and fixed position in the 1000x1000 parsec grid with high precision, we use a simple, deterministic hashing algorithm based on the MD5 hash of your domain name.
+To ensure every planet has a unique and fixed position in the 1000x1000 sparsec grid with high precision, we use a simple, deterministic hashing algorithm based on the MD5 hash of your domain name.
 
 1.  **Normalize your domain:** Take your domain name in lowercase, excluding the protocol (e.g., `federatedplanets.com`).
 2.  **Generate MD5 Hash:** Compute the MD5 hash of the normalized domain.
