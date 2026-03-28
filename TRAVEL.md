@@ -12,8 +12,8 @@ Before a planet can participate in the Federated Travel Network (FTN), it must c
   ```json
   {
     "name": "Arrakis",
-    "coordinates": { "x": 12.345, "y": 67.89 },
-    "space_port": "https://arrakis.space/api/v1/port"
+    "landing_site": "https://arrakis.space/outpost-9",
+    "space_port": "https://arrakis.space/outpost-9/api/v1/space-port"
   }
   ```
 
