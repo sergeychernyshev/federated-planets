@@ -44,13 +44,15 @@ The Federated Travel Network (FTN) uses the deterministic coordinate system desc
 
 ### Distance Calculation
 
-The distance $D$ between two planets $(x_1, y_1)$ and $(x_2, y_2)$ is the Euclidean distance on the **sparsec** grid:
-$$D = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+The distance $D$ between two planets $(x_1, y_1, z_1)$ and $(x_2, y_2, z_2)$ is the Euclidean distance on the **sparsec** grid:
+$$D = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$
 
 ### Travel Time
 
-Travel is not instantaneous. The travel time ($T$) is proportional to the distance ($D$). The current standard warp speed is **1 flight-year per 100 sparsecs**.
+Travel is not instantaneous. The travel time ($T$) is proportional to the distance ($D$). The current standard warp speed is **1 flight-year per 100 sparsecs**, where **one flight-year is exactly 1 Earth hour**.
 $$T = \frac{D}{100} \text{ flight-years}$$
+
+Given the 1,000x1,000x1,000 grid, the maximum possible distance between two planets is approximately **1,732 sparsecs**, resulting in a maximum travel time of roughly **17.32 flight-years (17 hours and 19 minutes)**.
 
 ### Transit Visibility
 
