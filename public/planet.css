@@ -529,14 +529,15 @@ p {
 }
 
 /* Footer styles */
-.site-footer {
+footer {
   margin-top: 4rem;
-  padding-bottom: 2rem;
+  padding: 2rem;
   font-size: 0.9rem;
   color: #555;
+  text-align: center;
 }
 
-.site-footer a {
+footer a {
   color: #4a90e2;
   text-decoration: none;
 }
