@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "A decentralized space exploration game where every planet is a sovereign website.",
   "scripts": {
-    "build": "node scripts/update-map.js"
+    "build": "node scripts/update-map.js",
+    "start": "serve dist"
   },
   "dependencies": {
     "cheerio": "^1.2.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
   },
   "author": "",
   "license": "ISC"

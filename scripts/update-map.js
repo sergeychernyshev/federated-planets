@@ -18,10 +18,24 @@ const calculateCoordinates = (domain) => {
 };
 
 const updateFiles = () => {
-  const manifestPath = path.join(__dirname, '../manifest.json');
-  const indexPath = path.join(__dirname, '../index.html');
+  const srcDir = path.join(__dirname, '../public');
+  const distDir = path.join(__dirname, '../dist');
   
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  const manifestSrcPath = path.join(srcDir, 'manifest.json');
+  const indexSrcPath = path.join(srcDir, 'index.html');
+  const cssSrcPath = path.join(srcDir, 'planet.css');
+  const jsSrcPath = path.join(srcDir, 'map.js');
+  
+  const manifestDistPath = path.join(distDir, 'manifest.json');
+  const indexDistPath = path.join(distDir, 'index.html');
+  const cssDistPath = path.join(distDir, 'planet.css');
+  const jsDistPath = path.join(distDir, 'map.js');
+
+  if (!fs.existsSync(distDir)) {
+    fs.mkdirSync(distDir, { recursive: true });
+  }
+  
+  const manifest = JSON.parse(fs.readFileSync(manifestSrcPath, 'utf8'));
   const myDomain = new URL(manifest.canonical_url).hostname;
   const myCoords = calculateCoordinates(myDomain);
   
@@ -29,21 +43,22 @@ const updateFiles = () => {
     x: parseFloat(myCoords.x),
     y: parseFloat(myCoords.y)
   };
-  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log(`Updated manifest.json coords: ${myDomain} -> (${myCoords.x}, ${myCoords.y})`);
+  
+  fs.writeFileSync(manifestDistPath, JSON.stringify(manifest, null, 2));
+  fs.copyFileSync(cssSrcPath, cssDistPath);
+  fs.copyFileSync(jsSrcPath, jsDistPath);
 
-  const indexHtml = fs.readFileSync(indexPath, 'utf8');
+  const indexHtml = fs.readFileSync(indexSrcPath, 'utf8');
   const $ = cheerio.load(indexHtml);
 
-  // 1. Update own coordinates in text
-  $('body > p:contains("Coordinates:") code').text(`${myCoords.x} - ${myCoords.y}`);
-  
-  // 2. Update own cross-hair position
-  $('g[transform^="translate"]').attr('transform', `translate(${myCoords.x}, ${myCoords.y})`);
+  $('link[rel="canonical"]').remove();
+  $('head').prepend(`\n    <link rel="canonical" href="${manifest.canonical_url}">`);
 
-  // 3. Update neighbor links, SVG circles, and Course Lines
+  $('.coord-display').text(`${myCoords.x} - ${myCoords.y}`);
+  $('.crosshair').attr('transform', `translate(${myCoords.x}, ${myCoords.y})`);
+
   $('#links .neighbor-entry').each((i, el) => {
-    const link = $(el).find('a[class^="neighbor-link-"]');
+    const link = $(el).find('.neighbor-link');
     const coordCode = $(el).find('code.coord');
     
     if (link.length && coordCode.length) {
@@ -51,34 +66,33 @@ const updateFiles = () => {
       const domain = new URL(url).hostname;
       const coords = calculateCoordinates(domain);
       const name = link.text();
-      const id = link.attr('class').match(/neighbor-link-(\d+)/)[1];
+      const id = i + 1;
 
-      console.log(`Updating ${name} (${domain}) -> ${coords.x} - ${coords.y}`);
-
-      // Update text display
+      link.attr('data-id', id);
+      coordCode.attr('data-id', id);
       coordCode.text(`${coords.x} - ${coords.y}`);
       
-      // Update SVG circle
       const circle = $(`#neighbor-circle-${id}`);
       if (circle.length) {
         circle.attr('cx', coords.x);
         circle.attr('cy', coords.y);
-        circle.find('title').text(`${name} (${coords.x} - ${coords.y})</title>`);
+        circle.attr('data-id', id);
+        circle.find('title').text(`${name} (${coords.x} - ${coords.y})`);
       }
 
-      // Update Course Line
       const line = $(`#course-line-${id}`);
       if (line.length) {
         line.attr('x1', myCoords.x);
         line.attr('y1', myCoords.y);
         line.attr('x2', coords.x);
         line.attr('y2', coords.y);
+        line.attr('data-id', id);
       }
     }
   });
 
-  fs.writeFileSync(indexPath, $.html());
-  console.log('Updated index.html successfully using cheerio.');
+  fs.writeFileSync(indexDistPath, $.html());
+  console.log('Build complete: Independent CSS/JS logic applied.');
 };
 
 updateFiles();
