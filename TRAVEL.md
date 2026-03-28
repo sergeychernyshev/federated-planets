@@ -34,7 +34,7 @@ For every travel plan, a subset of **$N = 3f + 1$** nodes is elected specificall
 
 Once the Traffic Controllers are elected, they reach consensus on the travel plan using a three-phase process:
 
-1.  **Pre-Prepare:** The Origin Space Port broadcasts the Travel Plan to the elected Traffic Controllers. The "Primary" (the first node in the elected list) assigns a sequence number.
+1.  **Pre-Prepare:** The Origin Space Port broadcasts the Travel Port to the elected Traffic Controllers. The "Primary" (the first node in the elected list) assigns a sequence number.
 2.  **Prepare:** Traffic Controllers verify the plan (checking fuel, ship integrity, and path). If valid, they broadcast a "Prepare" message to all other controllers.
 3.  **Commit:** Once a Traffic Controller receives $2f$ matching Prepare messages, they broadcast a "Commit" message. When $2f + 1$ Commit messages are collected, the travel plan is officially "Approved."
 
@@ -44,13 +44,13 @@ The Federated Travel Network (FTN) uses the deterministic coordinate system desc
 
 ### Distance Calculation
 
-The distance $D$ between two planets $(x_1, y_1)$ and $(x_2, y_2)$ is the Euclidean distance on the parsec grid:
+The distance $D$ between two planets $(x_1, y_1)$ and $(x_2, y_2)$ is the Euclidean distance on the **sparsec** grid:
 $$D = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
 
 ### Travel Time
 
-Travel is not instantaneous. The travel time ($T$) is proportional to the distance ($D$). The current standard warp speed is **1 hour per 100 parsecs**.
-$$T = \frac{D}{100} \text{ hours}$$
+Travel is not instantaneous. The travel time ($T$) is proportional to the distance ($D$). The current standard warp speed is **1 flight-year per 100 sparsecs**.
+$$T = \frac{D}{100} \text{ flight-years}$$
 
 ### Transit Visibility
 
@@ -76,7 +76,7 @@ A journey follows these steps:
 ## 5. Fault Tolerance and Security
 
 - **Byzantine Resistance:** By requiring $3f+1$ nodes, the protocol remains secure even if $f$ Traffic Controllers are offline or malicious.
-- **No Latency Constraints:** Since travel takes time in-game, the consensus process has ample time (seconds or even minutes) to complete without impacting the player experience.
+- **No Latency Constraints:** Since travel takes time in-game, the consensus process has ample time (from minutes to several flight-years) to complete without impacting the player experience.
 - **Auditability:** Any planet can verify the signatures on a travel plan to confirm it was validated by the correct, deterministically elected Traffic Controllers.
 
 ## 6. Why "Elected Traffic Controllers" for Games?
@@ -89,6 +89,6 @@ In a game where **latency is not a primary concern**, the Elected Traffic Contro
 
 ---
 
-_Document Version: 1.2.0_
+_Document Version: 1.3.0_
 
 _Protocol Status: Draft_
