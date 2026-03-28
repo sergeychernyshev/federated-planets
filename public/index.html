@@ -31,8 +31,8 @@
         <div class="star-map-wrapper">
           <!-- Universe Star Map (SVG) -->
           <div class="star-map-container">
-            <svg viewBox="0 0 1000 1000">
-              <!-- Grid Lines (Light) -->
+            <svg viewBox="0 0 1000 1000" id="universe-map">
+              <!-- Grid Lines -->
               <line
                 class="map-grid-line"
                 x1="0"
@@ -48,322 +48,27 @@
                 y2="1000"
               ></line>
 
-              <!-- Course Lines -->
-              <line
-                id="course-line-1"
-                class="course-line"
-                data-id="1"
-                x1="394.001"
-                y1="162.787"
-                x2="680.016"
-                y2="485.510"
-              ></line>
-              <line
-                id="course-line-2"
-                class="course-line"
-                data-id="2"
-                x1="394.001"
-                y1="162.787"
-                x2="202.289"
-                y2="652.274"
-              ></line>
-              <line
-                id="course-line-3"
-                class="course-line"
-                data-id="3"
-                x1="394.001"
-                y1="162.787"
-                x2="370.515"
-                y2="717.694"
-              ></line>
-              <line
-                id="course-line-4"
-                class="course-line"
-                data-id="4"
-                x1="394.001"
-                y1="162.787"
-                x2="729.357"
-                y2="797.487"
-              ></line>
-              <line
-                id="course-line-5"
-                class="course-line"
-                data-id="5"
-                x1="394.001"
-                y1="162.787"
-                x2="24.880"
-                y2="734.210"
-              ></line>
-              <line
-                id="course-line-6"
-                class="course-line"
-                data-id="6"
-                x1="394.001"
-                y1="162.787"
-                x2="249.187"
-                y2="515.404"
-              ></line>
-              <line
-                id="course-line-7"
-                class="course-line"
-                data-id="7"
-                x1="394.001"
-                y1="162.787"
-                x2="315.272"
-                y2="871.042"
-              ></line>
-              <line
-                id="course-line-8"
-                class="course-line"
-                data-id="8"
-                x1="394.001"
-                y1="162.787"
-                x2="123.609"
-                y2="986.807"
-              ></line>
-              <line
-                id="course-line-9"
-                class="course-line"
-                data-id="9"
-                x1="394.001"
-                y1="162.787"
-                x2="121.368"
-                y2="159.294"
-              ></line>
-              <line
-                id="course-line-10"
-                class="course-line"
-                data-id="10"
-                x1="394.001"
-                y1="162.787"
-                x2="744.972"
-                y2="614.831"
-              ></line>
-              <line
-                id="course-line-11"
-                class="course-line"
-                data-id="11"
-                x1="394.001"
-                y1="162.787"
-                x2="336.924"
-                y2="103.307"
-              ></line>
-              <line
-                id="course-line-12"
-                class="course-line"
-                data-id="12"
-                x1="394.001"
-                y1="162.787"
-                x2="966.455"
-                y2="408.450"
-              ></line>
-              <line
-                id="course-line-13"
-                class="course-line"
-                data-id="13"
-                x1="394.001"
-                y1="162.787"
-                x2="899.337"
-                y2="89.072"
-              ></line>
-              <line
-                id="course-line-14"
-                class="course-line"
-                data-id="14"
-                x1="394.001"
-                y1="162.787"
-                x2="789.347"
-                y2="112.181"
-              ></line>
-              <line
-                id="course-line-15"
-                class="course-line"
-                data-id="15"
-                x1="394.001"
-                y1="162.787"
-                x2="662.958"
-                y2="583.778"
-              ></line>
-              <line
-                id="course-line-16"
-                class="course-line"
-                data-id="16"
-                x1="394.001"
-                y1="162.787"
-                x2="931.860"
-                y2="458.340"
-              ></line>
-
-              <!-- Neighbors -->
-              <circle
-                id="neighbor-circle-1"
-                class="neighbor-circle"
-                data-id="1"
-                cx="680.016"
-                cy="485.510"
-                r="4"
-              >
-                <title>Aether Reach (680.016 - 485.510)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-2"
-                class="neighbor-circle"
-                data-id="2"
-                cx="202.289"
-                cy="652.274"
-                r="4"
-              >
-                <title>Iron Star Forge (202.289 - 652.274)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-3"
-                class="neighbor-circle"
-                data-id="3"
-                cx="370.515"
-                cy="717.694"
-                r="4"
-              >
-                <title>Neon Nebula (370.515 - 717.694)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-4"
-                class="neighbor-circle"
-                data-id="4"
-                cx="729.357"
-                cy="797.487"
-                r="4"
-              >
-                <title>Crystal Spire (729.357 - 797.487)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-5"
-                class="neighbor-circle"
-                data-id="5"
-                cx="24.880"
-                cy="734.210"
-                r="4"
-              >
-                <title>Rust Belt Outpost (24.880 - 734.210)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-6"
-                class="neighbor-circle"
-                data-id="6"
-                cx="249.187"
-                cy="515.404"
-                r="4"
-              >
-                <title>Nova Prime (249.187 - 515.404)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-7"
-                class="neighbor-circle"
-                data-id="7"
-                cx="315.272"
-                cy="871.042"
-                r="4"
-              >
-                <title>Solaris Gate (315.272 - 871.042)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-8"
-                class="neighbor-circle"
-                data-id="8"
-                cx="123.609"
-                cy="986.807"
-                r="4"
-              >
-                <title>Void Runner Base (123.609 - 986.807)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-9"
-                class="neighbor-circle"
-                data-id="9"
-                cx="121.368"
-                cy="159.294"
-                r="4"
-              >
-                <title>Starlight Bazaar (121.368 - 159.294)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-10"
-                class="neighbor-circle"
-                data-id="10"
-                cx="744.972"
-                cy="614.831"
-                r="4"
-              >
-                <title>Obsidian Moon (744.972 - 614.831)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-11"
-                class="neighbor-circle"
-                data-id="11"
-                cx="336.924"
-                cy="103.307"
-                r="4"
-              >
-                <title>Elysium Station (336.924 - 103.307)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-12"
-                class="neighbor-circle"
-                data-id="12"
-                cx="966.455"
-                cy="408.450"
-                r="4"
-              >
-                <title>Titan's Grip (966.455 - 408.450)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-13"
-                class="neighbor-circle"
-                data-id="13"
-                cx="899.337"
-                cy="89.072"
-                r="4"
-              >
-                <title>Frozen Peak (899.337 - 89.072)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-14"
-                class="neighbor-circle"
-                data-id="14"
-                cx="789.347"
-                cy="112.181"
-                r="4"
-              >
-                <title>Gale Force V (789.347 - 112.181)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-15"
-                class="neighbor-circle"
-                data-id="15"
-                cx="662.958"
-                cy="583.778"
-                r="4"
-              >
-                <title>The Monolith (662.958 - 583.778)</title>
-              </circle>
-              <circle
-                id="neighbor-circle-16"
-                class="neighbor-circle"
-                data-id="16"
-                cx="931.860"
-                cy="458.340"
-                r="4"
-              >
-                <title>Central Command (931.860 - 458.340)</title>
-              </circle>
+              <!-- Dynamic Content Containers (Populated by build script) -->
+              <g id="map-course-lines"></g>
+              <g id="map-planets"></g>
 
               <!-- You Are Here (Crosshair) -->
               <g class="crosshair" transform="translate(394.001, 162.787)">
-                <!-- Crosshair lines -->
-                <line class="crosshair-line h" x1="-30" y1="0" x2="30" y2="0"></line>
-                <line class="crosshair-line v" x1="0" y1="-30" x2="0" y2="30"></line>
-                <!-- Inner Circle -->
+                <line
+                  class="crosshair-line h"
+                  x1="-30"
+                  y1="0"
+                  x2="30"
+                  y2="0"
+                ></line>
+                <line
+                  class="crosshair-line v"
+                  x1="0"
+                  y1="-30"
+                  x2="0"
+                  y2="30"
+                ></line>
                 <circle class="crosshair-circle" cx="0" cy="0" r="10"></circle>
-                <!-- Pulse Effect (CSS Animation) -->
                 <circle class="crosshair-pulse" cx="0" cy="0" r="10"></circle>
               </g>
             </svg>
@@ -384,102 +89,85 @@
         </div>
 
         <div id="links">
-          <!-- These would be dynamically loaded from manifest.json in a full impl -->
           <div class="neighbor-entry">
-            <a href="https://aether.reach.io" class="neighbor-link" data-id="1"
+            <a href="https://aether.reach.io" class="neighbor-link"
               >Aether Reach</a
             >
-            <code class="coord">680.016 - 485.510</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://ironstar.forge" class="neighbor-link" data-id="2"
+            <a href="https://ironstar.forge" class="neighbor-link"
               >Iron Star Forge</a
             >
-            <code class="coord">202.289 - 652.274</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://neon.nebula.web" class="neighbor-link" data-id="3"
+            <a href="https://neon.nebula.web" class="neighbor-link"
               >Neon Nebula</a
             >
-            <code class="coord">370.515 - 717.694</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://crystal.spire.planet" class="neighbor-link" data-id="4"
+            <a href="https://crystal.spire.planet" class="neighbor-link"
               >Crystal Spire</a
             >
-            <code class="coord">729.357 - 797.487</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://rustbelt.outpost.space" class="neighbor-link" data-id="5"
+            <a href="https://rustbelt.outpost.space" class="neighbor-link"
               >Rust Belt Outpost</a
             >
-            <code class="coord">24.880 - 734.210</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://nova.prime.core" class="neighbor-link" data-id="6"
+            <a href="https://nova.prime.core" class="neighbor-link"
               >Nova Prime</a
             >
-            <code class="coord">249.187 - 515.404</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://solaris.gate.link" class="neighbor-link" data-id="7"
+            <a href="https://solaris.gate.link" class="neighbor-link"
               >Solaris Gate</a
             >
-            <code class="coord">315.272 - 871.042</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://void.runner.base" class="neighbor-link" data-id="8"
+            <a href="https://void.runner.base" class="neighbor-link"
               >Void Runner Base</a
             >
-            <code class="coord">123.609 - 986.807</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://starlight.bazaar.trade" class="neighbor-link" data-id="9"
+            <a href="https://starlight.bazaar.trade" class="neighbor-link"
               >Starlight Bazaar</a
             >
-            <code class="coord">121.368 - 159.294</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://obsidian.moon.base" class="neighbor-link" data-id="10"
+            <a href="https://obsidian.moon.base" class="neighbor-link"
               >Obsidian Moon</a
             >
-            <code class="coord">744.972 - 614.831</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://elysium.station.xyz" class="neighbor-link" data-id="11"
+            <a href="https://elysium.station.xyz" class="neighbor-link"
               >Elysium Station</a
             >
-            <code class="coord">336.924 - 103.307</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://titans.grip.mining" class="neighbor-link" data-id="12"
+            <a href="https://titans.grip.mining" class="neighbor-link"
               >Titan's Grip</a
             >
-            <code class="coord">966.455 - 408.450</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://frozen.peak.outpost" class="neighbor-link" data-id="13"
+            <a href="https://frozen.peak.outpost" class="neighbor-link"
               >Frozen Peak</a
             >
-            <code class="coord">899.337 - 89.072</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://galeforce.five.storm" class="neighbor-link" data-id="14"
+            <a href="https://galeforce.five.storm" class="neighbor-link"
               >Gale Force V</a
             >
-            <code class="coord">789.347 - 112.181</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://the.monolith.mystery" class="neighbor-link" data-id="15"
+            <a href="https://the.monolith.mystery" class="neighbor-link"
               >The Monolith</a
             >
-            <code class="coord">662.958 - 583.778</code>
           </div>
           <div class="neighbor-entry">
-            <a href="https://www.nasa.gov/" class="neighbor-link" data-id="16"
-              >Central Command</a
+            <a href="https://www.nasa.gov/" class="neighbor-link"
+              >Explorers Outpost</a
             >
-            <code class="coord">931.860 - 458.340</code>
           </div>
         </div>
       </div>
