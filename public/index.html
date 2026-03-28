@@ -33,8 +33,20 @@
           <div class="star-map-container">
             <svg viewBox="0 0 1000 1000" id="universe-map">
               <!-- Grid Lines -->
-              <line class="map-grid-line" x1="0" y1="500" x2="1000" y2="500"></line>
-              <line class="map-grid-line" x1="500" y1="0" x2="500" y2="1000"></line>
+              <line
+                class="map-grid-line"
+                x1="0"
+                y1="500"
+                x2="1000"
+                y2="500"
+              ></line>
+              <line
+                class="map-grid-line"
+                x1="500"
+                y1="0"
+                x2="500"
+                y2="1000"
+              ></line>
 
               <!-- Dynamic Content Containers (Populated by build script) -->
               <g id="map-course-lines"></g>
@@ -42,8 +54,20 @@
 
               <!-- You Are Here (Crosshair) -->
               <g class="crosshair" transform="translate(394.001, 162.787)">
-                <line class="crosshair-line h" x1="-30" y1="0" x2="30" y2="0"></line>
-                <line class="crosshair-line v" x1="0" y1="-30" x2="0" y2="30"></line>
+                <line
+                  class="crosshair-line h"
+                  x1="-30"
+                  y1="0"
+                  x2="30"
+                  y2="0"
+                ></line>
+                <line
+                  class="crosshair-line v"
+                  x1="0"
+                  y1="-30"
+                  x2="0"
+                  y2="30"
+                ></line>
                 <circle class="crosshair-circle" cx="0" cy="0" r="10"></circle>
                 <circle class="crosshair-pulse" cx="0" cy="0" r="10"></circle>
               </g>
@@ -55,7 +79,7 @@
           <div class="map-legend">
             <div class="legend-item">
               <span class="legend-marker station"></span>
-              <span>Current Station</span>
+              <span>You Are Here</span>
             </div>
             <div class="legend-item">
               <span class="legend-marker neighbor"></span>
@@ -70,7 +94,9 @@
           <li><a href="https://ironstar.forge">Iron Star Forge</a></li>
           <li><a href="https://neon.nebula.web">Neon Nebula</a></li>
           <li><a href="https://crystal.spire.planet">Crystal Spire</a></li>
-          <li><a href="https://rustbelt.outpost.space">Rust Belt Outpost</a></li>
+          <li>
+            <a href="https://rustbelt.outpost.space">Rust Belt Outpost</a>
+          </li>
           <li><a href="https://nova.prime.core">Nova Prime</a></li>
           <li><a href="https://solaris.gate.link">Solaris Gate</a></li>
           <li><a href="https://void.runner.base">Void Runner Base</a></li>
@@ -88,7 +114,11 @@
 
     <footer class="site-footer">
       Towel 42 Space Outpost is one of the
-      <a href="https://federatedplanets.com">Federated Planets</a>.
+      <a href="https://federatedplanets.com">Federated Planets</a> terraformed
+      with
+      <a href="https://github.com/sergeychernyshev/federated-planets"
+        >Source Codia</a
+      >.
     </footer>
   </body>
 </html>
