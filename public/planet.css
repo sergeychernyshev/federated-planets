@@ -528,6 +528,154 @@ p {
   opacity: 0.6;
 }
 
+/* Space Port Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1.5rem 0;
+}
+
+.status-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #2ecc71;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #2ecc71;
+}
+
+.space-port {
+  width: 100%;
+  max-width: 800px;
+  background: var(--warp-bg);
+  border-top: 1px dashed var(--warp-border);
+  border-bottom: 1px dashed var(--warp-border);
+  border-left: 1px solid var(--warp-border);
+  border-right: 1px solid var(--warp-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0 4rem 0;
+  text-align: left;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.traffic-log,
+.mission-archive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.traffic-log h3,
+.mission-archive h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--warp-text-dim);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--warp-border);
+  padding-bottom: 0.5rem;
+}
+
+.traffic-table,
+.archive-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+}
+
+.traffic-table th,
+.archive-table th {
+  text-align: left;
+  color: var(--warp-text-dim);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--map-grid);
+}
+
+.traffic-table td,
+.archive-table td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ship-id {
+  font-weight: bold;
+  color: var(--warp-accent);
+  white-space: nowrap;
+}
+
+.status-label,
+.event-label {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Preparation Label */
+.preparation .status-label {
+  background: rgba(241, 196, 15, 0.15);
+  color: #f1c40f;
+  border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+/* Outgoing / Departed Label */
+.outgoing .status-label,
+.departed .event-label {
+  background: rgba(230, 126, 34, 0.15);
+  color: #e67e22;
+  border: 1px solid rgba(230, 126, 34, 0.3);
+}
+
+/* Incoming / Arrived Label */
+.incoming .status-label,
+.arrived .event-label {
+  background: rgba(52, 152, 219, 0.15);
+  color: #3498db;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.location,
+.eta,
+.timestamp {
+  color: var(--warp-text-dim);
+}
+
+.archive-table td {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .traffic-table th:nth-child(3),
+  .traffic-table td:nth-child(3),
+  .traffic-table th:nth-child(4),
+  .traffic-table td:nth-child(4),
+  .archive-table th:nth-child(3),
+  .archive-table td:nth-child(3),
+  .archive-table th:nth-child(4),
+  .archive-table td:nth-child(4) {
+    display: none;
+  }
+}
+
 /* Footer styles */
 footer {
   margin-top: 4rem;
