@@ -1,6 +1,6 @@
 // Bidirectional Hover Highlighting
 const handleHover = (e) => {
-  const item = e.target.closest(".neighbor-link, .neighbor-circle, .coord");
+  const item = e.target.closest(".warp-links a, .neighbor-circle, .coord");
   if (!item) return;
 
   const id = item.dataset.id;

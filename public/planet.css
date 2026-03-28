@@ -247,7 +247,7 @@ p {
     width: 60%;
   }
 
-  #links {
+  .warp-links {
     flex: 1;
     margin-top: 0;
     padding-top: 1rem;
@@ -297,21 +297,59 @@ p {
     transform 0.3s;
 }
 
-.neighbor-entry {
+.warp-links {
+  flex: 1;
+  margin: 0;
+  padding: 0 0 0 2rem; /* Give space for numbers */
+  list-style-position: outside;
+}
+
+.warp-links li {
+  display: list-item; /* Restore list item behavior */
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.neighbor-entry-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
   gap: 1rem;
   width: 100%;
 }
 
-.neighbor-entry a {
+.warp-links li a {
+  color: var(--warp-accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition:
+    color 0.3s,
+    text-shadow 0.3s,
+    transform 0.3s;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   flex: 1;
   text-align: left;
+}
+
+.warp-links li a:hover,
+.warp-links li a.active {
+  color: #fff;
+  text-shadow: 0 0 10px var(--warp-accent);
+}
+
+.warp-links li a.active {
+  transform: scale(1.05);
+}
+
+@media (prefers-color-scheme: light) {
+  .warp-links li a:hover,
+  .warp-links li a.active {
+    color: var(--warp-accent);
+    text-shadow: none;
+    text-decoration: underline;
+  }
 }
 
 .coord {

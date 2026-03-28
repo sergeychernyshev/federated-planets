@@ -33,20 +33,8 @@
           <div class="star-map-container">
             <svg viewBox="0 0 1000 1000" id="universe-map">
               <!-- Grid Lines -->
-              <line
-                class="map-grid-line"
-                x1="0"
-                y1="500"
-                x2="1000"
-                y2="500"
-              ></line>
-              <line
-                class="map-grid-line"
-                x1="500"
-                y1="0"
-                x2="500"
-                y2="1000"
-              ></line>
+              <line class="map-grid-line" x1="0" y1="500" x2="1000" y2="500"></line>
+              <line class="map-grid-line" x1="500" y1="0" x2="500" y2="1000"></line>
 
               <!-- Dynamic Content Containers (Populated by build script) -->
               <g id="map-course-lines"></g>
@@ -54,20 +42,8 @@
 
               <!-- You Are Here (Crosshair) -->
               <g class="crosshair" transform="translate(394.001, 162.787)">
-                <line
-                  class="crosshair-line h"
-                  x1="-30"
-                  y1="0"
-                  x2="30"
-                  y2="0"
-                ></line>
-                <line
-                  class="crosshair-line v"
-                  x1="0"
-                  y1="-30"
-                  x2="0"
-                  y2="30"
-                ></line>
+                <line class="crosshair-line h" x1="-30" y1="0" x2="30" y2="0"></line>
+                <line class="crosshair-line v" x1="0" y1="-30" x2="0" y2="30"></line>
                 <circle class="crosshair-circle" cx="0" cy="0" r="10"></circle>
                 <circle class="crosshair-pulse" cx="0" cy="0" r="10"></circle>
               </g>
@@ -88,88 +64,25 @@
           </div>
         </div>
 
-        <div id="links">
-          <div class="neighbor-entry">
-            <a href="https://aether.reach.io" class="neighbor-link"
-              >Aether Reach</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://ironstar.forge" class="neighbor-link"
-              >Iron Star Forge</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://neon.nebula.web" class="neighbor-link"
-              >Neon Nebula</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://crystal.spire.planet" class="neighbor-link"
-              >Crystal Spire</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://rustbelt.outpost.space" class="neighbor-link"
-              >Rust Belt Outpost</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://nova.prime.core" class="neighbor-link"
-              >Nova Prime</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://solaris.gate.link" class="neighbor-link"
-              >Solaris Gate</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://void.runner.base" class="neighbor-link"
-              >Void Runner Base</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://starlight.bazaar.trade" class="neighbor-link"
-              >Starlight Bazaar</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://obsidian.moon.base" class="neighbor-link"
-              >Obsidian Moon</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://elysium.station.xyz" class="neighbor-link"
-              >Elysium Station</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://titans.grip.mining" class="neighbor-link"
-              >Titan's Grip</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://frozen.peak.outpost" class="neighbor-link"
-              >Frozen Peak</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://galeforce.five.storm" class="neighbor-link"
-              >Gale Force V</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://the.monolith.mystery" class="neighbor-link"
-              >The Monolith</a
-            >
-          </div>
-          <div class="neighbor-entry">
-            <a href="https://www.nasa.gov/" class="neighbor-link"
-              >Explorers Outpost</a
-            >
-          </div>
-        </div>
+        <ol class="warp-links">
+          <!-- Add planets here. Build script will generate map markers and coordinates. -->
+          <li><a href="https://aether.reach.io">Aether Reach</a></li>
+          <li><a href="https://ironstar.forge">Iron Star Forge</a></li>
+          <li><a href="https://neon.nebula.web">Neon Nebula</a></li>
+          <li><a href="https://crystal.spire.planet">Crystal Spire</a></li>
+          <li><a href="https://rustbelt.outpost.space">Rust Belt Outpost</a></li>
+          <li><a href="https://nova.prime.core">Nova Prime</a></li>
+          <li><a href="https://solaris.gate.link">Solaris Gate</a></li>
+          <li><a href="https://void.runner.base">Void Runner Base</a></li>
+          <li><a href="https://starlight.bazaar.trade">Starlight Bazaar</a></li>
+          <li><a href="https://obsidian.moon.base">Obsidian Moon</a></li>
+          <li><a href="https://elysium.station.xyz">Elysium Station</a></li>
+          <li><a href="https://titans.grip.mining">Titan's Grip</a></li>
+          <li><a href="https://frozen.peak.outpost">Frozen Peak</a></li>
+          <li><a href="https://galeforce.five.storm">Gale Force V</a></li>
+          <li><a href="https://the.monolith.mystery">The Monolith</a></li>
+          <li><a href="https://www.nasa.gov/">Central Command</a></li>
+        </ol>
       </div>
     </section>
 
