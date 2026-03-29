@@ -8,11 +8,11 @@ Before a planet can participate in the Federated Travel Network (FTN), it must c
 
 - **Definition:** A Space Port is a specialized cryptographic node (or a set of services) hosted on the planet's domain.
 - **Function:** It acts as the local gateway for initiating travel plans and serves as a potential **Traffic Controller** for other planets' journeys.
-- **Manifest Entry:** A planet with a Space Port must include the `space_port` endpoint in its `manifest.json`:
+- **Manifest Entry:** A planet with a Space Port must include the `space_port` endpoint in its manifest file:
   ```json
   {
     "name": "Arrakis",
-    "landing_site": "https://arrakis.space/outpost-9",
+    "landing_site": "https://arrakis.space/outpost-9/",
     "space_port": "https://arrakis.space/outpost-9/api/v1/space-port"
   }
   ```

@@ -36,7 +36,7 @@ To add your planet to the map:
     ```html
     <link rel="space-manifest" href="/outpost-42/manifest.json" />
     ```
-3.  **Create Manifest:** Host a `manifest.json` file (typically located in the same directory as your landing site) containing metadata:
+3.  **Create Manifest:** Host a `manifest.json` file (typically co-located in the same directory as your landing site) containing metadata:
     ```json
     {
       "name": "Your Planet Name",
@@ -44,6 +44,7 @@ To add your planet to the map:
       "landing_site": "https://yourdomain.com/outpost-42/"
     }
     ```
+    _Note: `landing_site` is optional. This is the page other planets should link to. If omitted, the site's homepage (the root `/` path) is considered the landing site._
 4.  **Add Warp Ring:** Add a "Warp Ring" section to your site, linking to at least one other planet to stay connected to the network.
 
 ---
