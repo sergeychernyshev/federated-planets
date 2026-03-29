@@ -15,9 +15,11 @@ To ensure every planet has a unique and fixed position in the 1000x1000x1000 spa
 1.  **Normalize your domain:** Take the domain name of your site in lowercase, excluding the protocol and any path (e.g., `federatedplanets.com`).
 2.  **Generate MD5 Hash:** Compute the MD5 hash of the normalized domain.
 3.  **Extract Coordinates:**
-    - **X:** Take the first 6 hex characters of the hash and convert them to a decimal integer. Apply modulo 1,000,000, then divide by 1,000 to get a value with 3 decimal points (e.g., `(int_X % 1000000) / 1000.0`).
-    - **Y:** Take the next 6 hex characters of the hash and convert them to a decimal integer. Apply modulo 1,000,000, then divide by 1,000 to get a value with 3 decimal points (e.g., `(int_Y % 1000000) / 1000.0`).
-    - **Z:** Take the next 6 hex characters of the hash (starting from index 12) and convert them to a decimal integer. Apply modulo 1,000,000, then divide by 1,000 to get a value with 3 decimal points (e.g., `(int_Z % 1000000) / 1000.0`).
+    - **X:** Take the first 6 hex characters of the hash and convert them to a decimal integer. Apply modulo 100,000, then divide by 100 to get a value with up to 2 decimal points (e.g., `(int_X % 100000) / 100.0`).
+    - **Y:** Take the next 6 hex characters of the hash and convert them to a decimal integer. Apply modulo 100,000, then divide by 100 to get a value with up to 2 decimal points (e.g., `(int_Y % 100000) / 100.0`).
+    - **Z:** Take the next 6 hex characters of the hash (starting from index 12) and convert them to a decimal integer. Apply modulo 100,000, then divide by 100 to get a value with up to 2 decimal points (e.g., `(int_Z % 100000) / 100.0`).
+
+Coordinates are always displayed in the format `XXX.XX:YYY.YY:ZZZ.ZZ`, padded with leading zeros for both the integer and decimal parts (e.g., `001.45:078.90:000.78`).
 
 ## How Navigation Works
 
