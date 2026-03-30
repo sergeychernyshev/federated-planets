@@ -63,7 +63,7 @@ During the journey, the ship is visible to the public record of both the **Origi
 1.  **Preparation (Origin):** Once the **Elected Traffic Controllers** approve the plan, but before the `Start_Timestamp` is reached, the origin planet displays the ship as **"Preparing for Departure"**.
 2.  **Departure (Origin):** As soon as the `Start_Timestamp` is reached, the status changes to **"Departing"** or **"In Transit"**.
 3.  **Arrival (Destination):** Simultaneously, the destination planet's Space Port displays the ship as an **"Incoming"** vessel, along with its estimated time of arrival (ETA) based on the `End_Timestamp`.
-4.  **Completion:** Once the `End_Timestamp` has passed, the traveler is permitted to complete the landing sequence at the destination.
+4.  **Completion:** Once the `End_Timestamp` has passed, the traveler is automatically considered landed at the destination planet.
 
 ## 4. The Travel Plan Algorithm
 
@@ -74,7 +74,7 @@ A journey follows these steps:
 3.  **Recording:** The approved plan, including the **Start Timestamp** and **End Timestamp**, is signed by the controllers and stored in the **Distributed Travel Ledger (DTL)**.
 4.  **Preparation Phase:** The ship enters a preparation state. It is visible on the origin's traffic log as "Preparing for Departure" until the `Start_Timestamp`.
 5.  **Transit:** At the `Start_Timestamp`, the ship officially departs. Both origin and destination planets display the active ship status in their respective "Space Port Traffic" logs.
-6.  **Arrival:** Upon reaching the destination at or after the **End Timestamp**, the traveler presents the signed plan. The destination verifies the signatures and timing before clearing the ship for landing.
+6.  **Arrival:** Arrival verification happens immediately when the plan is filed with the destination planet, which happens at the same time as it is filed with the departure planet.
 7.  **Archival:** Once a journey is completed, both the Origin and Destination Space Ports move the record to their **Mission Archive**, keeping a history of the 10 most recent arrivals and departures for public audit.
 
 ## 5. Fault Tolerance and Security
