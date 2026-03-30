@@ -61,7 +61,7 @@ Given the 1,000x1,000x1,000 grid, the maximum possible distance between two plan
 During the journey, the ship is visible to the public record of both the **Origin** and **Destination** planets:
 
 1.  **Preparation (Origin):** Once the **Elected Traffic Controllers** approve the plan, but before the `Start_Timestamp` is reached, the origin planet displays the ship as **"Preparing for Departure"**.
-2.  **Departure (Origin):** As soon as the `Start_Timestamp` is reached, the status changes to **"Departing"** or **"In Transit"**.
+2.  **Departure (Origin):** As soon as the `Start_Timestamp` is reached, the status changes to **"In Transit"**.
 3.  **Arrival (Destination):** Simultaneously, the destination planet's Space Port displays the ship as an **"Incoming"** vessel, along with its estimated time of arrival (ETA) based on the `End_Timestamp`.
 4.  **Completion:** Once the `End_Timestamp` has passed, the traveler is automatically considered landed at the destination planet.
 
