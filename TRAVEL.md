@@ -8,14 +8,16 @@ Before a planet can participate in the Federated Travel Network (FTN), it must c
 
 - **Definition:** A Space Port is a specialized cryptographic node (or a set of services) hosted on the planet's domain.
 - **Function:** It acts as the local gateway for initiating travel plans and serves as a potential **Traffic Controller** for other planets' journeys.
-- **Manifest Entry:** A planet with a Space Port must include the `space_port` endpoint in its manifest file:
+- **Manifest Entry:** A planet with a Space Port must include the `space_port` endpoint in its manifest file, and may optionally declare its travel safety level (`travel_safety_level`):
   ```json
   {
     "name": "Arrakis",
     "landing_site": "https://arrakis.space/outpost-9/",
-    "space_port": "https://arrakis.space/outpost-9/api/v1/space-port"
+    "space_port": "https://arrakis.space/outpost-9/api/v1/space-port",
+    "travel_safety_level": 1
   }
   ```
+  If `travel_safety_level` is not provided, it defaults to `1`. If the declared value is not a valid integer greater than or equal to `1`, travel to or from that planet is impossible — Traffic Controllers validate this value as part of the approval process and will reject any travel plan involving a planet with an invalid `travel_safety_level`.
 
 ## 2. The Elected Traffic Controllers Protocol
 
@@ -23,11 +25,15 @@ The Elected Traffic Controllers are a Byzantine Fault Tolerant (BFT) subset of n
 
 ### Selection (Proximity-Based Sortition)
 
-For every travel plan, a subset of **$N = 3f + 1$** nodes is elected specifically from the **direct neighbors** of the Origin and Destination planets.
+For every travel plan, a subset of **$N = 3f + 1$** nodes is elected from the **direct neighbors** of the Origin and Destination planets, where $f = \max(f_{origin}, f_{destination})$ and each planet's $f$ value is its declared `travel_safety_level`.
 
-- **The Pool:** Only planets listed in the `warp-ring` of either the source or destination, which also host an active **Space Port**, are eligible.
+- **Fault Tolerance Level:** Each planet declares its minimum fault tolerance requirement via `travel_safety_level` in its manifest. The effective $f$ for a journey is the higher of the two planets' values.
+- **Proportional Representation:** Each planet's neighbors contribute Traffic Controllers in proportion to that planet's `travel_safety_level` relative to the combined total. The planet with the higher level provides proportionally more controllers:
+  - Origin neighbors: $\left\lfloor N \times \dfrac{f_{origin}}{f_{origin} + f_{destination}} \right\rceil$ controllers
+  - Destination neighbors: $N - \text{origin controllers}$
+- **The Pool:** Only planets listed in the `warp-ring` of the respective side's planet, which also host an active **Space Port**, are eligible for that side's allocation.
 - **Seed:** The election seed is `hash(Origin_Coords + Destination_Coords + Departure_Timestamp)`.
-- **Deterministic Selection:** Traffic Controllers are selected by hashing the seed against the combined list of neighbors and picking the top $N$ results.
+- **Deterministic Selection:** Each side's controllers are selected by hashing the seed against that side's eligible neighbor list and picking the top required number of results.
 - **Why Neighbors?:** This ensures that consensus is reached by nodes that are "locally" aware of the participants, reducing global network noise and ensuring that only relevant parties validate the travel.
 
 ### Consensus Algorithm (PBFT Subset)
@@ -91,8 +97,30 @@ In a game where **latency is not a primary concern**, the Elected Traffic Contro
 2.  **Privacy (Fog of War):** By using a subset of nodes, we can keep the full details of a travel plan (like cargo or ship armaments) private from the general public, only revealing them to the elected controllers who are sworn to secrecy by the protocol.
 3.  **Cost Efficiency:** Instead of requiring every node in the entire federation to validate every small move, only a small subset ($3f+1$) handles the work, allowing the network to scale to millions of planets.
 
+## 7. Planetary Sovereignty Over Travel
+
+Each planet retains the right to accept or decline any travel request according to its own rules and policies.
+
+- **Right to Decline:** A planet may refuse any inbound or outbound travel request. When declining, the planet **must** provide a reason in its response. This reason is surfaced directly in the traveler's UI so the traveler understands why their journey was denied.
+- **Increased Security Requirements:** A planet may impose stricter consensus requirements than the federation default by setting a higher `travel_safety_level` in its manifest. The higher of the two planets' `travel_safety_level` values is used as $f$ in the $3f+1$ Traffic Controller election formula for that journey.
+- **Non-Discriminatory Disclosure:** Declined requests and their stated reasons are recorded in the planet's public travel log, ensuring transparency and accountability.
+
+## 8. Planet-Funded Shuttle Limits
+
+To support future commercial space travel, planets fund shuttle services between select destinations. The following shuttle capacity limits apply to routes between planets at any given time:
+
+| Neighbor Relationship                                     | Max Concurrent Shuttles |
+| --------------------------------------------------------- | ----------------------- |
+| Both planets mutually list each other as neighbors        | 2 shuttles              |
+| Only one planet lists the other as a neighbor (one-sided) | 1 shuttle               |
+| Neither planet lists the other as a neighbor              | Not allowed             |
+
+- **Mutual neighbors:** A maximum of **2 shuttles** may travel between two planets at any given time if both planets list each other in their respective `warp-ring`.
+- **One-sided neighbor:** A maximum of **1 shuttle** may travel between two planets at any given time when only one of the two planets lists the other in its `warp-ring`.
+- **Non-neighbors:** No planet-funded shuttle service operates between two planets if neither planet lists the other in its `warp-ring`.
+
 ---
 
-_Document Version: 1.3.0_
+_Document Version: 1.4.0_
 
 _Protocol Status: Draft_
